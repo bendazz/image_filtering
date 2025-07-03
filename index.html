@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Filtering with Kernels</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖼️ Interactive Image Filtering</h1>
+            <p>Apply various convolution kernels to images and see the effects in real-time!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <h3>📁 Select Sample Image</h3>
+                    <select id="sampleImageSelect">
+                        <option value="">Choose a sample image...</option>
+                        <option value="geometric" selected>Geometric Shapes</option>
+                        <option value="gradient">Color Gradients</option>
+                        <option value="checkerboard">Checkerboard Pattern</option>
+                        <option value="noise">Noise Pattern</option>
+                        <option value="mandelbrot">Mandelbrot Fractal</option>
+                        <option value="circles">Concentric Circles</option>
+                        <option value="hilbert">David Hilbert (Photograph)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>🔧 Select Kernel</h3>
+                    <select id="kernelSelect">
+                        <option value="identity">Identity (Original)</option>
+                        <option value="gaussianBlur">Gaussian Blur</option>
+                        <option value="boxBlur">Box Blur</option>
+                        <option value="sharpen">Sharpen</option>
+                        <option value="edgeDetection">Edge Detection (Laplacian)</option>
+                        <option value="emboss">Emboss</option>
+                        <option value="sobelX">Sobel X (Vertical Edges)</option>
+                        <option value="sobelY">Sobel Y (Horizontal Edges)</option>
+                        <option value="motionBlur">Motion Blur</option>
+                        <option value="unsharpMask">Unsharp Mask</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <h3>⚙️ Settings</h3>
+                    <label>
+                        Kernel Strength:
+                        <input type="range" id="strengthSlider" min="0.1" max="2" step="0.1" value="1">
+                        <span id="strengthValue">1.0</span>
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <h3>📊 Current Kernel</h3>
+                    <div id="kernelDisplay" class="kernel-display"></div>
+                </div>
+
+                <div class="control-group">
+                    <button id="applyBtn">Re-apply Filter</button>
+                    <button id="resetBtn">Reset to Original</button>
+                </div>
+            </div>
+
+            <div class="image-panel">
+                <div class="image-container">
+                    <h3>Original Image</h3>
+                    <canvas id="originalCanvas" width="400" height="300"></canvas>
+                </div>
+                <div class="image-container">
+                    <h3>Filtered Image</h3>
+                    <canvas id="filteredCanvas" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>ℹ️ Kernel Information</h3>
+            <div id="kernelInfo">
+                <p>Select a kernel to see its description and effects.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
